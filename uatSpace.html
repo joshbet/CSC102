@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--Week 1 assignment, html tags
-Assignment: Launching your UAT Space Program HTML Document Tags
+Assignment: Mission Control, We Have Blastoff!
 Josh Bechtel
 josbech1@uat.edu-->
 
@@ -8,19 +8,28 @@ josbech1@uat.edu-->
 <html>
 
     <head>
+        <script src=code.js> </script>
         <title>
             Josh Bechtel's UATSpace Page
         </title>
+   
     </head>
-
+    <style>
+        /*Changes background to a gradient going from white to gray. 
+        Changes font style across page*/
+       body {
+            background-image: linear-gradient(to right, white, gray);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+    </style>
     <body>
+        <!--Adds logo image to page-->
         <img src="UATspaceLogo-2.jpg">
         <h1>
             UAT Space Program
         </h1>
         <script>
-            //required alert function test
-            alert("This is a test of the alert function");
             //test use of document.write
             document.write("This is a test of the document.write function");
 
@@ -28,8 +37,15 @@ josbech1@uat.edu-->
         <p>
             Test of the paragraph function. It can be more than one sentence.
         </p>
-    <button>Start</button>
-    <button>Stop</button>
+        <!--Countdown timer title-->
+        <h2>Countdown Timer</h2>
+        <!--Status of current countdown timer-->
+     <div id="countdownStatus">Timer Status</div><br>
+     <br> 
+        <!--Adds functionality to start button-->
+        <button onclick="start();">Start</button>
+        <button>Stop</button>
+
     </body>
 
 </html>
