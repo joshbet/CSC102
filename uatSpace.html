@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--Week 1 assignment 2
+<!--Week 1 assignment, html tags
 Assignment: Mission Control, We Have Blastoff!
 Josh Bechtel
 josbech1@uat.edu-->
@@ -41,11 +41,28 @@ josbech1@uat.edu-->
         <h2>Countdown Timer</h2>
         <!--Status of current countdown timer-->
      <div id="countdownStatus">Timer Status</div><br>
-     <br> 
         <!--Adds functionality to start button-->
         <button onclick="start();">Start</button>
         <button>Stop</button>
+        <br>
+        <!--For our craps game, on the html side, we need:
+        1. Button to play craps
+        2. Craps status line
+        3. Header "saying craps played here"
 
+        The story of our craps game...
+        
+        This craps game provides a lightweight form of entertainment for those working on the space mission. 
+        It will also be used to introduce this game to any extraterrestrial life if it is found during a mission. 
+        With Craps being a simple game, it could be a good way of introducing something from earth to potential life beyond our planet!
+        -->
+        <h2>Please try your hand at Craps!</h2>
+        <br>
+        <div id="crapsStatus">Craps Status </div>
+        <!--Sets blank images before dice are rolled and sets the size to 50x50 on each dice image-->
+        <img src=" " width="50" height="50" id="diceImage">  <img src=" " width="50" height="50" id="diceImage2">
+        <br>
+        <button onclick="playCraps();">Play Craps</button>
     </body>
 
 </html>
