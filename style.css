@@ -1,0 +1,21 @@
+body {
+    background-image: linear-gradient(to right, white, gray);
+    font-family: 'Courier New', Courier, monospace;
+    border-bottom: 6px solid #3D3D3D;
+}
+
+/*Adds style to all buttons*/
+.button{
+    border-radius: 30px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 20px;
+    background: #ababab;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+} 
+
+/*Creates shadow behind title text */
+.title{
+    text-shadow: 15px 13px 4px rgba(206,0,0,0.52);
+}

@@ -1,6 +1,6 @@
 //Function for countdownTimer V1 for week1-2 
-function start(){
-    console.log("start() function started");
+function blastoffTimerV1(){
+    console.log("blastoffTimerV1() function started");
     // created variable currTime, set it equal to 10
     var currTime = 10;
     //Logs currTime to the console
@@ -194,8 +194,44 @@ function playCraps(){
         
     }
 
-   
+}
 
+function blastoffTimerV2(){
+    console.log("blastoffTimerV2() function started");
+    //Want a loop that runs 11 times, 10-1 and then blastoff
+    var countdownTimer = 10;
+    for(var i = 0; i < 10; i = i + 1){
+        setTimeout(function(){
+            document.getElementById("countdownStatus").innerHTML = countdownTimer;
+            countdownTimer = countdownTimer - 1;
+        }, 1000 * i)
 
+    }
+    setTimeout(function(){
+        //What we do after the delay
+        document.getElementById("countdownStatus").innerHTML = "Blastoff!";
+    }, 10000)
+}
 
+function blastoffTimerV3(){
+    console.log("blastoffTimerV2() function started");
+    //Want a loop that runs 11 times, 10-1 and then blastoff
+    //Sets countdownTimer variable to 10
+    var countdownTimer = 10;
+    //start the loop at 0, add 1 each time until 10 is reached
+    for(var i = 0; i <= 10; i = i + 1){
+        setTimeout(function(){
+            //Set parameters for different numbers in the countdown, when the timer is completed it will print "Blastoff!", when it is less than 5 it will display a warning.
+            if(countdownTimer <= 0){
+                document.getElementById("countdownStatus").innerHTML = "Blastoff!";
+            } else if(countdownTimer < 5){
+                document.getElementById("countdownStatus").innerHTML = "Warning, less than halfway to launch!" + countdownTimer;
+            } else {
+                document.getElementById("countdownStatus").innerHTML = countdownTimer;
+            }
+            //subtracts 1 from countdownTimer
+            countdownTimer = countdownTimer - 1;
+        }, 1000 * i)
+
+    }
 }
