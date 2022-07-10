@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!--Week 3 assignment,
-Assignment: Change Order Request from the Fleet Admiral
+<!--Week 1 assignment, html tags
+Assignment: Mission Control, We Have Blastoff!
 Josh Bechtel
 josbech1@uat.edu-->
 
@@ -15,6 +15,8 @@ josbech1@uat.edu-->
         <link rel="stylesheet" href="style.css">
     </head>
    
+
+    
     <body>
 
         <!--Table to hold UAT Space logo and header text-->
@@ -27,11 +29,114 @@ josbech1@uat.edu-->
                     </h1>
                 </td>
             </tr>
+            
         </table>
 
+        <!--Data table-->
+        <table id="data" border="2" width="70%" class="dtable">
+            <col style="width: 35%;">
+            <col style="width: 35%;">
+            <thead>
+                <th>
+                    Data Type
+                </th>
+                <th>
+                    Reading
+                </th>
+            </thead>
+            <tbody>
+                <tr id="seconds">
+                    <td>Time Elapsed:</td>
+                    <td>15 Seconds</td>
+                </tr>
+                <tr id="latitude">
+                    <td>Latitude:</td>
+                    <td>0</td>
+                </tr>
+                <tr id="longitude">
+                    <td>Longitude:</td>
+                    <td>0</td>
+                </tr>
+                <tr id="gps_altitude">
+                    <td>GPS Altitude:</td>
+                    <td>0</td>
+                </tr>
+                <tr id="bmp_altitude">
+                    <td>BMP Sensor Altitude:</td>
+                    <td>30383.04</td>
+                </tr>
+                <tr id="bmp_pressure">
+                    <td>BMP Sensor Pressure:</td>
+                    <td>2.34</td>
+                </tr>
+                <tr id="bmp_temperature">
+                    <td>BMP Sensor Temperature:</td>
+                    <td>0</td>
+                </tr>
+                <tr id="digtemp">
+                    <td>Digital Sensor Temperature:</td>
+                    <td>24.12</td>
+                </tr>
+                <tr id="csstemp">
+                    <td>CSS Sensor Temperature:</td>
+                    <td>25</td>
+                </tr>
+                <tr id="css_eCO2">
+                    <td>CSS Sensor eCO2:</td>
+                    <td>400</td>
+                </tr>
+                <tr id="css_TVOC">
+                    <td>CSS Sensor TVOC:</td>
+                    <td>0</td>
+                </tr>
+                <tr id="UV">
+                    <td>CSS Sensor TVOC:</td>
+                    <td>0</td>
+                </tr>
+                <tr id="accelX">
+                    <td>Accel X:</td>
+                    <td>-0.87</td>
+                </tr>
+                <tr id="accelY">
+                    <td>Accel Y:</td>
+                    <td>-0.92</td>
+                </tr>
+                <tr id="accelZ">
+                    <td>Accel Z:</td>
+                    <td>0.81</td>
+                </tr>
+                <tr id="magneticX">
+                    <td>Magnetic X:</td>
+                    <td>0.13</td>
+                </tr>
+                <tr id="magneticY">
+                    <td>Magnetic Y:</td>
+                    <td>0.57</td>
+                </tr>
+                <tr id="magneticZ">
+                    <td>Magnetic Z:</td>
+                    <td>-0.24</td>
+                </tr>
+                <tr id="gyroX">
+                    <td>Gyro X:</td>
+                    <td>4.66</td>
+                </tr>
+                <tr id="gyroY">
+                    <td>Gyro Y:</td>
+                    <td>0.01</td>
+                </tr>
+                <tr id="gyroZ">
+                    <td>Gyro Z:</td>
+                    <td>-0.4</td>
+                </tr>
+            </tbody>
+
+        </table>
+        
+       
         <script>
             //test use of document.write
-            document.write("This is a test of the document.write function");
+            //document.write("This is a test of the document.write function");
 
        </script>
         <p>
@@ -42,8 +147,8 @@ josbech1@uat.edu-->
         <!--Status of current countdown timer-->
      <div id="countdownStatus">Timer Status</div><br>
         <!--Adds functionality to start button-->
-        <button onclick="blastoffTimerV3();" class="button">Start</button>
-        <button class="button">Stop</button>
+        <button onclick="blastoffTimerV4();" class="button" id="startButton">Start</button>
+        <button onclick="stopTimer();" class="button" id="stopButton">Stop</button>
         <br>
         <!--For our craps game, on the html side, we need:
         1. Button to play craps
@@ -63,6 +168,11 @@ josbech1@uat.edu-->
         <img src="images/clear.png" width="50" height="50" id="diceImage">  <img src="images/clear.png" width="50" height="50" id="diceImage2">
         <br>
         <button onclick="playCraps();" class="button">Play Craps</button>
+        <br>
+        <br>
+        <h3>Play space station sounds</h3>
+        <h4>Warning, it may get loud</h4>
+        <button class="button" onclick="playStation();">Play space station sounds</button>
     </body>
 
 </html>

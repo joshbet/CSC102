@@ -1,4 +1,7 @@
-//Function for countdownTimer V1 for week1-2 
+//This file has all scripts and functions for uatSpace.html
+
+
+//Function for countdownTimer V1 for week1-2
 function blastoffTimerV1(){
     console.log("blastoffTimerV1() function started");
     // created variable currTime, set it equal to 10
@@ -216,12 +219,9 @@ function blastoffTimerV2(){
 function blastoffTimerV3(){
     console.log("blastoffTimerV2() function started");
     //Want a loop that runs 11 times, 10-1 and then blastoff
-    //Sets countdownTimer variable to 10
     var countdownTimer = 10;
-    //start the loop at 0, add 1 each time until 10 is reached
     for(var i = 0; i <= 10; i = i + 1){
         setTimeout(function(){
-            //Set parameters for different numbers in the countdown, when the timer is completed it will print "Blastoff!", when it is less than 5 it will display a warning.
             if(countdownTimer <= 0){
                 document.getElementById("countdownStatus").innerHTML = "Blastoff!";
             } else if(countdownTimer < 5){
@@ -229,9 +229,162 @@ function blastoffTimerV3(){
             } else {
                 document.getElementById("countdownStatus").innerHTML = countdownTimer;
             }
-            //subtracts 1 from countdownTimer
             countdownTimer = countdownTimer - 1;
         }, 1000 * i)
 
     }
 }
+
+function startStop(cancel){ 
+    var countdownLoop;
+    if(cancel == 0){
+    console.log("startFun() started");
+    document.getElementById("startButton").disabled = true;
+    document.getElementById("stopButton").disabled = false;
+    var countdownTimer = 10;
+    
+    for(var i = 0; i <= 10; i = i + 1){
+    countdownLoop = setTimeout(function(){
+            console.log(countdownLoop)
+            if(countdownTimer <= 0){
+                document.getElementById("countdownStatus").innerHTML = "Blastoff!";
+            } else if(countdownTimer < 5){
+                document.getElementById("countdownStatus").innerHTML = "Warning, less than halfway to launch!" + countdownTimer;
+            } 
+            else {
+                document.getElementById("countdownStatus").innerHTML = countdownTimer;
+            }
+            
+            countdownTimer = countdownTimer - 1;
+            console.log(countdownTimer);
+        }, 1000 * i)
+        
+
+if(cancel == 1 ){
+    countdownTimer = -1;
+    console.log(countdownLoop);
+    clearTimeout(countdownLoop);
+    document.getElementById("countdownStatus").innerHTML = "Countdown Stopped.";
+
+}
+    }
+}
+
+
+}
+var countdownLoop;
+function startFun(cancel){
+    if(cancel == 0){
+    console.log("startFun(0) started");
+    document.getElementById("startButton").disabled = true;
+    document.getElementById("stopButton").disabled = false;
+    var countdownTimer = 10;
+    }
+    for(var i = 0; i <= 10; i = i + 1){
+            setTimeout(function(){
+            
+            if(cancel == 1){
+                i = null;
+                countdownTimer = null;
+            }
+            if(countdownTimer <= 0){
+                document.getElementById("countdownStatus").innerHTML = "Blastoff!";
+            } else if(countdownTimer < 5){
+                document.getElementById("countdownStatus").innerHTML = "Warning, less than halfway to launch!" + countdownTimer;
+            } 
+            else {
+                document.getElementById("countdownStatus").innerHTML = countdownTimer;
+            }
+            
+            countdownTimer = countdownTimer - 1;
+            console.log(countdownTimer);
+        }, 1000 * i)
+        
+    }
+}
+
+function stopFun(){
+    console.log("stopFun() started");
+    document.getElementById("stopButton").disabled = true;
+    document.getElementById("startButton").disabled = false;
+    
+    console.log(countdownLoop);
+    clearTimeout(countdownLoop);
+    
+    if(countdownTimer <= 0){
+        
+        document.getElementById("countdownStatus").innerHTML = "Countdown Stopped.";
+    }
+}
+
+
+//Function to add sound
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+function playStation(){
+    console.log("playStation() started");
+    //play spaceStation sounds here
+    mySound = new sound("us-lab-background.mp3");
+    mySound.play();
+}
+
+function sound(srcFile){
+    console.log("sound function started");
+    this.sound = document.createElement("audio");
+    this.sound.src = srcFile;
+    this.sound.setAttribute("preload", "audio");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+//Functions for start and stop buttons
+//-----------------------------------------------------------------------------------------------------------------------------------
+var timerCheck = null;
+//function to start the countdown timer
+function blastoffTimerV4() {
+    console.log("blastoffTimerV4 started");
+    //When the start button is pressed, it gets disabled from any further action and the stop button becomes clickable
+    document.getElementById("startButton").disabled = true;
+    document.getElementById("stopButton").disabled = false;
+    //countdownTimer starts at 11 as it is subtracted once before printed to the screen for the first time.
+    var countdownTimer = 11;
+    //Checks the status of timerCheck, it is declared outside of the function so it can be accessed by both blastoffTimerV4 and stopTimer
+    if (timerCheck == null) {
+        //setInterval is used as our countdown timer, it will decrease countdownTimer by 1 every second until it is <= 0
+        timerCheck = setInterval(function () {
+            countdownTimer -= 1;
+            //if, else if and else statements print different messages based on the value of countdownTimer.
+            if(countdownTimer <= 0){
+                document.getElementById("countdownStatus").innerHTML = "Blastoff!";
+                clearInterval(timerCheck);
+            } else if(countdownTimer < 5){
+                document.getElementById("countdownStatus").innerHTML = "Warning, less than halfway to launch!" + countdownTimer;
+            } 
+            else {
+                document.getElementById("countdownStatus").innerHTML = countdownTimer;
+            }
+        }, 1000);
+    }
+}
+
+//Function to stop the countdown timer
+function stopTimer() {
+    console.log("stopTimer() started")
+    //When the stop button is pressed, it gets disabled from any further action and the start button becomes clickable
+    document.getElementById("stopButton").disabled = true;
+    document.getElementById("startButton").disabled = false;
+    //timerCheck gets cleared when the stopTimer function runs, variable is also reset so that the countdown can be run again.
+    clearInterval(timerCheck);
+    timerCheck = null;
+    //lets the user know that the timer has stopped.
+    document.getElementById("countdownStatus").innerHTML = "Timer stopped.";
+}
+//-----------------------------------------------------------------------------------------------------------------------------------
